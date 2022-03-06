@@ -1,20 +1,26 @@
 import React from "react";
 import { Table ,TableCaption,Thead,Tr,Th,Td,Tbody,Tfoot} from '@chakra-ui/react';
 import { Image,Button} from '@chakra-ui/react';
-import {selectList} from '../cartSlice';
-import {useAppSelector } from '../../../app/hooks';
+
+import { useAppDispatch,useAppSelector } from '../../../app/hooks';
+
 import {ListProduct} from '../../Product/productSlice';
-import { useAppDispatch } from '../../../app/hooks';
-import {CartActions} from '../cartSlice';
+ 
+import {CartActions ,selectList} from '../cartSlice';
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import QuantityField from '../../../components/QuantityField';
 
 export default function TableCart(){
+
+    const dispatch = useAppDispatch();
+    //get list cart/product
     const products = useAppSelector(ListProduct);
     const cart = useAppSelector(selectList);
-    const dispatch = useAppDispatch();
+    //total price all item
     const total = cart.reduce((total, item) => total + (item.price* item.quantity), 0).toFixed(2)
-    const handDeleteItem =(id:string)=>{
+
+    const handDeleteItem =(id:number)=>{
         dispatch(CartActions.removeItem(id));
     }
    

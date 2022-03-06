@@ -1,11 +1,10 @@
 import * as React from 'react';
  
-import { Box ,Image,Badge} from '@chakra-ui/react'
-import {Product}  from "../../../models/product";
-import { Text } from '@chakra-ui/react';
-import { Button } from '@chakra-ui/react';
+import { Box ,Image,Badge,Text ,Button,Stack} from '@chakra-ui/react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Stack } from '@chakra-ui/react';
+
+import {Product}  from "../../../models/product";
+
 import { useAppDispatch } from '../../../app/hooks';
 import {CartActions} from '../../Cart/cartSlice';
 import {CartItem} from '../../../models/cart';

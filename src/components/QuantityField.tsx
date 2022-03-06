@@ -5,12 +5,12 @@ import {CartActions} from '../features/Cart/cartSlice';
 import { useAppDispatch } from '../app/hooks';
 interface QuantityProps{
     quantity : number,
-    productId : string
+    productId : number
 }
 
 function QuantityField({quantity,productId}:QuantityProps) {
     const dispatch = useAppDispatch();
-    const changeQuantity = (id:string,quantity:number)=>{
+    const changeQuantity = (id:number,quantity:number)=>{
         let change ={
             id : id,
             quantity:quantity,

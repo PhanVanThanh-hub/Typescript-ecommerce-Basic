@@ -8,7 +8,7 @@ interface InviteeState {
 }
 
 interface changeQuantity{
-    id:string,
+    id:number,
     quantity:number
 }
 
@@ -29,7 +29,7 @@ const CartSlice = createSlice({
                 state.list.push(cart);
             }
         },
-        removeItem(state,action:PayloadAction<string>){
+        removeItem(state,action:PayloadAction<number>){
             const ItemID = action.payload
             const index = state.list.findIndex(item => (item.id === ItemID));
             state.list.splice(index, 1);
